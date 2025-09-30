@@ -60,7 +60,7 @@ export default function Recos({ navigation }) {
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.headerBox}>
-        <Text style={styles.header}>Recommandations</Text>
+        <Text style={styles.header}>Mes recommandations</Text>
       </View>
       <View style={styles.searchBox}>
         <TextInput
@@ -80,14 +80,33 @@ export default function Recos({ navigation }) {
             style={({ pressed }) => [styles.card, pressed && styles.cardPressed]}
             onPress={() => navigation && navigation.navigate && navigation.navigate('RecommendationDetail', { reco: item })}
           >
-            <View style={styles.cardRow}>
-              <Text style={styles.cardName}>{item.nom}</Text>
+            {/* Header with profile and status */}
+            <View style={styles.cardHeader}>
+              <View style={styles.profileSection}>
+                <View style={styles.profileIcon}>
+                  <Text style={styles.profileIconText}>👤</Text>
+                </View>
+                <View style={styles.profileInfo}>
+                  <Text style={styles.cardName}>{item.nom}</Text>
+                  <Text style={styles.cardDate}>Recommandé le {item.date}</Text>
+                </View>
+              </View>
               <View style={[styles.statusTag, { backgroundColor: STATUS_COLORS[item.status] || '#1A237E' }]}> 
                 <Text style={styles.statusText}>{item.status}</Text>
               </View>
             </View>
-            <Text style={styles.cardType}>{item.typeProjet}</Text>
-            <Text style={styles.cardDate}>{item.date}</Text>
+            
+            {/* Project details */}
+            <View style={styles.projectSection}>
+              <Text style={styles.projectLabel}>Projet immobilier :</Text>
+              <Text style={styles.cardType}>{item.typeProjet}</Text>
+            </View>
+            
+            {/* Action indicator */}
+            <View style={styles.actionIndicator}>
+              <Text style={styles.actionText}>Appuyez pour voir les détails</Text>
+              <Text style={styles.actionArrow}>→</Text>
+            </View>
           </Pressable>
         )}
         ListEmptyComponent={<Text style={{ textAlign: 'center', color: '#888', marginTop: 40 }}>Aucune recommandation trouvée.</Text>}
@@ -105,7 +124,8 @@ const styles = StyleSheet.create({
     paddingTop: 18,
     paddingBottom: 8,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#E0E0E0',
   },
@@ -132,54 +152,118 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: '#fff',
-    borderRadius: 14,
-    padding: 16,
+    borderRadius: 16,
+    padding: 18,
     marginBottom: 16,
-    elevation: 2,
+    elevation: 3,
     shadowColor: '#000',
-    shadowOpacity: 0.06,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 6,
+    shadowOpacity: 0.08,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 8,
     borderWidth: 1,
-    borderColor: '#F0F1F3',
+    borderColor: '#E8EAF0',
   },
   cardPressed: {
-    opacity: 0.7,
-    backgroundColor: '#F4F6FA',
+    opacity: 0.8,
+    backgroundColor: '#F8F9FB',
+    transform: [{ scale: 0.98 }],
   },
-  cardRow: {
+  cardHeader: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'space-between',
-    marginBottom: 6,
+    marginBottom: 16,
   },
-  cardName: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#1A237E',
+  profileSection: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    flex: 1,
+    marginRight: 12,
   },
-  statusTag: {
-    borderRadius: 8,
-    paddingVertical: 4,
-    paddingHorizontal: 8,
+  profileIcon: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: '#E3E6F5',
     alignItems: 'center',
     justifyContent: 'center',
-    minWidth: 60,
+    marginRight: 12,
+    borderWidth: 2,
+    borderColor: '#D1D5DB',
   },
-  statusText: {
-    color: '#fff',
-    fontSize: 11,
+  profileIconText: {
+    fontSize: 20,
+    color: '#1A237E',
+  },
+  profileInfo: {
+    flex: 1,
+    paddingTop: 2,
+  },
+  cardName: {
+    fontSize: 17,
     fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  cardType: {
-    fontSize: 14,
-    color: '#333',
-    marginBottom: 2,
+    color: '#1A237E',
+    marginBottom: 4,
   },
   cardDate: {
     fontSize: 12,
-    color: '#888',
-    textAlign: 'right',
+    color: '#6B7280',
+    fontWeight: '500',
+  },
+  statusTag: {
+    borderRadius: 12,
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    minWidth: 80,
+    maxWidth: 120,
+  },
+  statusText: {
+    color: '#fff',
+    fontSize: 10,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    lineHeight: 12,
+  },
+  projectSection: {
+    backgroundColor: '#F8F9FB',
+    borderRadius: 12,
+    padding: 14,
+    marginBottom: 12,
+    borderLeftWidth: 4,
+    borderLeftColor: '#1A237E',
+  },
+  projectLabel: {
+    fontSize: 12,
+    color: '#6B7280',
+    fontWeight: '600',
+    marginBottom: 4,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  cardType: {
+    fontSize: 15,
+    color: '#1F2937',
+    lineHeight: 20,
+    fontWeight: '500',
+  },
+  actionIndicator: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingTop: 8,
+    borderTopWidth: 1,
+    borderTopColor: '#E5E7EB',
+  },
+  actionText: {
+    fontSize: 13,
+    color: '#6B7280',
+    fontStyle: 'italic',
+  },
+  actionArrow: {
+    fontSize: 16,
+    color: '#1A237E',
+    fontWeight: 'bold',
   },
 });

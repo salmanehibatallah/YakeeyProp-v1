@@ -140,7 +140,7 @@ export default function Accueil({ navigation }) {
         <View style={styles.grid}>
           <Pressable
             style={({ pressed }) => [styles.tileCard, pressed && styles.tileCardPressed]}
-            onPress={() => console.log('Biens à la vente')}
+            onPress={() => navigation && navigation.navigate && navigation.navigate('ListingBiens')}
           >
             {/* Home icon */}
             <View style={styles.tileIconWrap}>
@@ -363,7 +363,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 24,
     fontWeight: 'bold',
-    textAlign: 'center',
+    textAlign: 'left',
     marginBottom: 18,
     color: '#1A237E',
   },

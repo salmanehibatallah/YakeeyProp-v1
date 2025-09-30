@@ -14,6 +14,7 @@ import Reseau from '../screens/Reseau';
 import Notifications from '../screens/Notifications';
 import Profil from '../screens/Profil';
 import RecommendationDetail from '../screens/RecommendationDetail';
+import ListingBiens from '../screens/ListingBiens';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -197,6 +198,7 @@ export default function AppNavigator() {
         <Stack.Screen name="Signup" component={SignupScreen} />
         <Stack.Screen name="MainTabs" component={MainTabs} />
         <Stack.Screen name="RecommendationDetail" component={RecommendationDetail} />
+        <Stack.Screen name="ListingBiens" component={ListingBiens} />
       </Stack.Navigator>
     </NavigationContainer>
   );
