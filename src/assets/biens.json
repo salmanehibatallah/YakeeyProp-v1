@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Appartement à Maarif Extension",
+    "price": "3 750 000 DH",
+    "area": "225 m²",
+    "rooms": { "bedrooms": 4, "bathrooms": 4 },
+    "location": { "city": "Casablanca", "district": "Maarif Extension" },
+    "image": "https://medias.yakeey.com/cdn-cgi/image/f_auto,format=webp,width=1920/ci033040/image_544492555.jpg"
+  },
+  {
+    "title": "Appartement à Bourgogne (Anfa)",
+    "price": "2 650 000 DH",
+    "area": "139 m²",
+    "rooms": { "bedrooms": 3, "bathrooms": 3 },
+    "location": { "city": "Casablanca", "district": "Bourgogne (Anfa)" },
+    "image": "https://medias.yakeey.com/cdn-cgi/image/f_auto,format=webp,width=1920/ca029096/image_829175610.jpg"
+  },
+  {
+    "title": "Villa à Laymoune",
+    "price": "8 500 000 DH",
+    "area": "414 m²",
+    "rooms": { "bedrooms": 4, "bathrooms": 2 },
+    "location": { "city": "Casablanca", "district": "Laymoune" },
+    "image": "https://medias.yakeey.com/cdn-cgi/image/f_auto,format=webp,width=1920/ci034637/image_652607237.PNG"
+  },
+  {
+    "title": "Appartement à Ferme Bretonne",
+    "price": "2 700 000 DH",
+    "area": "114 m²",
+    "rooms": { "bedrooms": 3, "bathrooms": 2 },
+    "location": { "city": "Casablanca", "district": "Ferme Bretonne" },
+    "image": "https://medias.yakeey.com/cdn-cgi/image/f_auto,format=webp,width=1920/ca011382/image_221367495.jpeg"
+  }
+]
