@@ -151,7 +151,7 @@ export default function Accueil({ navigation }) {
           </Pressable>
           <Pressable
             style={({ pressed }) => [styles.tileCard, pressed && styles.tileCardPressed]}
-            onPress={() => console.log('Annuaire professionnel')}
+            onPress={() => navigation && navigation.navigate && navigation.navigate('Annuaire')}
           >
             {/* Directory icon */}
             <View style={styles.tileIconWrap}>
@@ -163,7 +163,7 @@ export default function Accueil({ navigation }) {
           </Pressable>
           <Pressable
             style={({ pressed }) => [styles.tileCard, pressed && styles.tileCardPressed]}
-            onPress={() => console.log('Afterwork by Yakeey')}
+            onPress={() => navigation && navigation.navigate && navigation.navigate('AfterworkListing')}
           >
             {/* Afterwork icon (glass) */}
             <View style={styles.tileIconWrap}>
@@ -175,7 +175,7 @@ export default function Accueil({ navigation }) {
           </Pressable>
           <Pressable
             style={({ pressed }) => [styles.tileCard, pressed && styles.tileCardPressed]}
-            onPress={() => console.log('Ma Cagnotte')}
+            onPress={() => navigation && navigation.navigate && navigation.navigate('Cagnotte')}
           >
             {/* Wallet icon */}
             <View style={styles.tileIconWrap}>

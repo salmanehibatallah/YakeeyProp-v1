@@ -15,6 +15,10 @@ import Notifications from '../screens/Notifications';
 import Profil from '../screens/Profil';
 import RecommendationDetail from '../screens/RecommendationDetail';
 import ListingBiens from '../screens/ListingBiens';
+import PropertyDetails from '../screens/PropertyDetails';
+import AfterworkListing from '../screens/AfterworkListing';
+import Cagnotte from '../screens/Cagnotte';
+import Annuaire from '../screens/Annuaire';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -199,6 +203,10 @@ export default function AppNavigator() {
         <Stack.Screen name="MainTabs" component={MainTabs} />
         <Stack.Screen name="RecommendationDetail" component={RecommendationDetail} />
         <Stack.Screen name="ListingBiens" component={ListingBiens} />
+        <Stack.Screen name="PropertyDetails" component={PropertyDetails} />
+        <Stack.Screen name="AfterworkListing" component={AfterworkListing} />
+        <Stack.Screen name="Cagnotte" component={Cagnotte} />
+        <Stack.Screen name="Annuaire" component={Annuaire} />
       </Stack.Navigator>
     </NavigationContainer>
   );

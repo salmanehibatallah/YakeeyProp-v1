@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "title": "Afterwork Networking Immobilier",
+    "description": "Rencontrez les professionnels de l'immobilier dans une ambiance décontractée. Échangez, créez des liens et développez votre réseau.",
+    "date": "2024-11-15",
+    "time": "18:30",
+    "location": {
+      "venue": "Sky Lounge Casablanca",
+      "address": "Twin Center, Boulevard Zerktouni",
+      "city": "Casablanca",
+      "district": "Maarif"
+    },
+    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop",
+    "attendees": 45,
+    "maxAttendees": 80,
+    "price": "150 MAD",
+    "category": "Networking",
+    "organizer": "Yakeey Events",
+    "status": "upcoming",
+    "highlights": ["Cocktails inclus", "Networking guidé", "Vue panoramique"]
+  },
+  {
+    "id": 2,
+    "title": "Soirée Innovation PropTech",
+    "description": "Découvrez les dernières innovations technologiques dans l'immobilier. Présentations de startups et démonstrations live.",
+    "date": "2024-11-22",
+    "time": "19:00",
+    "location": {
+      "venue": "Technopark Casablanca",
+      "address": "Route de Nouaceur",
+      "city": "Casablanca",
+      "district": "Sidi Maarouf"
+    },
+    "image": "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop",
+    "attendees": 32,
+    "maxAttendees": 60,
+    "price": "200 MAD",
+    "category": "Innovation",
+    "organizer": "PropTech Morocco",
+    "status": "upcoming",
+    "highlights": ["Pitch sessions", "Démo produits", "Buffet premium"]
+  },
+  {
+    "id": 3,
+    "title": "Afterwork Investissement Immobilier",
+    "description": "Stratégies d'investissement, analyse de marché et conseils d'experts pour maximiser vos investissements immobiliers.",
+    "date": "2024-11-29",
+    "time": "18:00",
+    "location": {
+      "venue": "Four Seasons Hotel",
+      "address": "Boulevard de la Corniche",
+      "city": "Casablanca",
+      "district": "Ain Diab"
+    },
+    "image": "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&h=600&fit=crop",
+    "attendees": 28,
+    "maxAttendees": 50,
+    "price": "300 MAD",
+    "category": "Investissement",
+    "organizer": "Real Estate Club",
+    "status": "upcoming",
+    "highlights": ["Experts reconnus", "Cas pratiques", "Networking VIP"]
+  },
+  {
+    "id": 4,
+    "title": "Afterwork Jeunes Professionnels",
+    "description": "Spécialement conçu pour les jeunes professionnels de l'immobilier. Ambiance décontractée et échanges informels.",
+    "date": "2024-12-06",
+    "time": "19:30",
+    "location": {
+      "venue": "Rooftop Anfa Place",
+      "address": "Boulevard d'Anfa",
+      "city": "Casablanca",
+      "district": "Anfa"
+    },
+    "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop",
+    "attendees": 38,
+    "maxAttendees": 70,
+    "price": "120 MAD",
+    "category": "Jeunes Pro",
+    "organizer": "Young Real Estate",
+    "status": "upcoming",
+    "highlights": ["Ambiance jeune", "Prix attractif", "Musique live"]
+  },
+  {
+    "id": 5,
+    "title": "Afterwork Luxury Real Estate",
+    "description": "Événement exclusif dédié à l'immobilier de luxe. Rencontrez les acteurs du haut de gamme immobilier.",
+    "date": "2024-12-13",
+    "time": "20:00",
+    "location": {
+      "venue": "La Mamounia Casablanca",
+      "address": "Avenue des FAR",
+      "city": "Casablanca",
+      "district": "Centre-ville"
+    },
+    "image": "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop",
+    "attendees": 15,
+    "maxAttendees": 30,
+    "price": "500 MAD",
+    "category": "Luxury",
+    "organizer": "Luxury Properties",
+    "status": "upcoming",
+    "highlights": ["Événement exclusif", "Champagne premium", "Networking select"]
+  },
+  {
+    "id": 6,
+    "title": "Afterwork Digital Marketing Immobilier",
+    "description": "Apprenez les meilleures stratégies de marketing digital pour promouvoir vos biens immobiliers efficacement.",
+    "date": "2024-12-20",
+    "time": "18:30",
+    "location": {
+      "venue": "Spaces Casablanca",
+      "address": "Boulevard Ghandi",
+      "city": "Casablanca",
+      "district": "Gauthier"
+    },
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+    "attendees": 22,
+    "maxAttendees": 40,
+    "price": "180 MAD",
+    "category": "Marketing",
+    "organizer": "Digital Real Estate",
+    "status": "upcoming",
+    "highlights": ["Ateliers pratiques", "Outils gratuits", "Certificat inclus"]
+  }
+]

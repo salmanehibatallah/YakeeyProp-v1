@@ -1,12 +1,23 @@
 import React, { useState, useRef } from 'react';
-import { SafeAreaView, View, Text, StyleSheet, ScrollView, TouchableOpacity, FlatList, Image, Modal, TextInput, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import {
+  SafeAreaView,
+  ScrollView,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  Modal,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from 'react-native';
 
-// Import the properties data
-const biens = require('../assets/biens.json');
-
-export default function ListingBiens({ navigation }) {
+export default function PropertyDetails({ navigation, route }) {
+  const { property } = route.params;
   const [modalVisible, setModalVisible] = useState(false);
-  const [search, setSearch] = useState('');
   const [form, setForm] = useState({
     type: '',
     nom: '',
@@ -87,64 +98,6 @@ export default function ListingBiens({ navigation }) {
     closeModal();
   };
 
-  const handlePropertyPress = (item) => {
-    if (navigation && navigation.navigate) {
-      navigation.navigate('PropertyDetails', { property: item });
-    }
-  };
-
-  // Filter biens based on search
-  const filteredBiens = biens.filter(bien => 
-    bien.title.toLowerCase().includes(search.toLowerCase()) ||
-    bien.location.city.toLowerCase().includes(search.toLowerCase()) ||
-    bien.location.district.toLowerCase().includes(search.toLowerCase())
-  );
-
-  const renderPropertyItem = ({ item }) => (
-    <TouchableOpacity 
-      style={styles.propertyCard}
-      onPress={() => handlePropertyPress(item)}
-      activeOpacity={0.7}
-    >
-      <Image
-        source={{ uri: item.image }}
-        style={styles.propertyImage}
-        resizeMode="cover"
-      />
-      <View style={styles.propertyInfo}>
-        <Text style={styles.propertyTitle}>{item.title}</Text>
-        <Text style={styles.propertyLocation}>{item.location.city} - {item.location.district}</Text>
-        
-        <View style={styles.propertyDetails}>
-          <View style={styles.detailItem}>
-            <Text style={styles.detailIcon}>📐</Text>
-            <Text style={styles.detailText}>{item.area}</Text>
-          </View>
-          <View style={styles.detailItem}>
-            <Text style={styles.detailIcon}>🛏️</Text>
-            <Text style={styles.detailText}>{item.rooms.bedrooms}</Text>
-          </View>
-          <View style={styles.detailItem}>
-            <Text style={styles.detailIcon}>🛁</Text>
-            <Text style={styles.detailText}>{item.rooms.bathrooms}</Text>
-          </View>
-        </View>
-        
-        <Text style={styles.propertyPrice}>{item.price}</Text>
-        
-        <TouchableOpacity 
-          style={styles.contactButton}
-          onPress={(e) => {
-            e.stopPropagation();
-            openModal();
-          }}
-        >
-          <Text style={styles.contactButtonText}>Recommander un acheteur</Text>
-        </TouchableOpacity>
-      </View>
-    </TouchableOpacity>
-  );
-
   return (
     <SafeAreaView style={styles.safe}>
       {/* Header with back arrow */}
@@ -152,36 +105,85 @@ export default function ListingBiens({ navigation }) {
         <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
           <Text style={styles.backArrow}>←</Text>
         </TouchableOpacity>
-        <Text style={styles.header}>Les biens à la vente</Text>
+        <Text style={styles.header}>Détails du bien</Text>
         <View style={styles.placeholder} />
       </View>
 
-      {/* Search Section */}
-      <View style={styles.searchBox}>
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Rechercher par titre, ville ou quartier..."
-          placeholderTextColor="#888"
-          value={search}
-          onChangeText={setSearch}
+      <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
+        {/* Property Image */}
+        <Image
+          source={{ uri: property.image }}
+          style={styles.propertyImage}
+          resizeMode="cover"
         />
-      </View>
 
-      {/* Properties List */}
-      <FlatList
-        data={filteredBiens}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={renderPropertyItem}
-        contentContainerStyle={styles.listContent}
-        showsVerticalScrollIndicator={false}
-        ListEmptyComponent={
-          <View style={styles.emptyContainer}>
-            <Text style={styles.emptyText}>
-              {search ? 'Aucun bien trouvé pour cette recherche.' : 'Aucun bien disponible.'}
+        {/* Property Info */}
+        <View style={styles.propertyInfo}>
+          <Text style={styles.propertyTitle}>{property.title}</Text>
+          <Text style={styles.propertyLocation}>{property.location.city} - {property.location.district}</Text>
+          
+          <View style={styles.propertyDetails}>
+            <View style={styles.detailItem}>
+              <Text style={styles.detailIcon}>📐</Text>
+              <Text style={styles.detailText}>{property.area}</Text>
+            </View>
+            <View style={styles.detailItem}>
+              <Text style={styles.detailIcon}>🛏️</Text>
+              <Text style={styles.detailText}>{property.rooms.bedrooms}</Text>
+            </View>
+            <View style={styles.detailItem}>
+              <Text style={styles.detailIcon}>🛁</Text>
+              <Text style={styles.detailText}>{property.rooms.bathrooms}</Text>
+            </View>
+          </View>
+          
+          <Text style={styles.propertyPrice}>{property.price}</Text>
+
+          {/* Description Section */}
+          <View style={styles.descriptionSection}>
+            <Text style={styles.sectionTitle}>Description</Text>
+            <Text style={styles.descriptionText}>
+              {property.description || "Magnifique propriété située dans un quartier calme et recherché. Cette maison offre un cadre de vie exceptionnel avec des finitions de qualité et une architecture moderne. Idéale pour une famille cherchant le confort et la tranquillité."}
             </Text>
           </View>
-        }
-      />
+
+          {/* Features Section */}
+          <View style={styles.featuresSection}>
+            <Text style={styles.sectionTitle}>Caractéristiques</Text>
+            <View style={styles.featuresList}>
+              <View style={styles.featureItem}>
+                <Text style={styles.featureIcon}>🏠</Text>
+                <Text style={styles.featureText}>Type: {property.type || 'Maison'}</Text>
+              </View>
+              <View style={styles.featureItem}>
+                <Text style={styles.featureIcon}>📐</Text>
+                <Text style={styles.featureText}>Surface: {property.area}</Text>
+              </View>
+              <View style={styles.featureItem}>
+                <Text style={styles.featureIcon}>🛏️</Text>
+                <Text style={styles.featureText}>Chambres: {property.rooms.bedrooms}</Text>
+              </View>
+              <View style={styles.featureItem}>
+                <Text style={styles.featureIcon}>🛁</Text>
+                <Text style={styles.featureText}>Salles de bain: {property.rooms.bathrooms}</Text>
+              </View>
+              <View style={styles.featureItem}>
+                <Text style={styles.featureIcon}>📍</Text>
+                <Text style={styles.featureText}>Quartier: {property.location.district}</Text>
+              </View>
+              <View style={styles.featureItem}>
+                <Text style={styles.featureIcon}>🏙️</Text>
+                <Text style={styles.featureText}>Ville: {property.location.city}</Text>
+              </View>
+            </View>
+          </View>
+
+          {/* CTA Button */}
+          <TouchableOpacity style={styles.ctaButton} onPress={openModal}>
+            <Text style={styles.ctaButtonText}>Recommander un acheteur</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
 
       {/* Modal for recommendation */}
       <Modal
@@ -332,102 +334,102 @@ const styles = StyleSheet.create({
   placeholder: {
     width: 40,
   },
-  searchBox: {
-    padding: 16,
-    backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0',
-  },
-  searchInput: {
-    backgroundColor: '#F4F6FA',
-    borderRadius: 8,
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    fontSize: 16,
-    borderWidth: 1,
-    borderColor: '#E0E0E0',
-    color: '#222',
-  },
-  emptyContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 40,
-  },
-  emptyText: {
-    textAlign: 'center',
-    color: '#888',
-    fontSize: 16,
-  },
-  listContent: {
-    padding: 16,
-    paddingBottom: 40,
-  },
-  propertyCard: {
-    backgroundColor: '#fff',
-    borderRadius: 16,
-    marginBottom: 16,
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOpacity: 0.08,
-    shadowOffset: { width: 0, height: 3 },
-    shadowRadius: 8,
-    borderWidth: 1,
-    borderColor: '#E8EAF0',
-    overflow: 'hidden',
+  scrollContainer: {
+    flex: 1,
   },
   propertyImage: {
     width: '100%',
-    height: 200,
+    height: 300,
     backgroundColor: '#E5E7EB',
   },
   propertyInfo: {
-    padding: 16,
+    padding: 20,
+    backgroundColor: '#fff',
+    marginTop: -20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    flex: 1,
   },
   propertyTitle: {
-    fontSize: 18,
+    fontSize: 24,
     fontWeight: 'bold',
     color: '#1A237E',
-    marginBottom: 4,
+    marginBottom: 8,
   },
   propertyLocation: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#6B7280',
-    marginBottom: 12,
+    marginBottom: 16,
   },
   propertyDetails: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 12,
-    gap: 16,
+    marginBottom: 16,
+    gap: 20,
   },
   detailItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
+    gap: 6,
   },
   detailIcon: {
-    fontSize: 16,
+    fontSize: 18,
   },
   detailText: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#4B5563',
     fontWeight: '500',
   },
   propertyPrice: {
-    fontSize: 20,
+    fontSize: 28,
     fontWeight: 'bold',
     color: '#059669',
-    marginBottom: 16,
+    marginBottom: 24,
   },
-  contactButton: {
-    backgroundColor: '#1A237E',
-    borderRadius: 8,
-    paddingVertical: 12,
-    alignItems: 'center',
+  descriptionSection: {
+    marginBottom: 24,
   },
-  contactButtonText: {
-    color: '#fff',
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#1A237E',
+    marginBottom: 12,
+  },
+  descriptionText: {
     fontSize: 16,
+    color: '#4B5563',
+    lineHeight: 24,
+  },
+  featuresSection: {
+    marginBottom: 32,
+  },
+  featuresList: {
+    gap: 12,
+  },
+  featureItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  featureIcon: {
+    fontSize: 16,
+    width: 24,
+  },
+  featureText: {
+    fontSize: 16,
+    color: '#4B5563',
+    flex: 1,
+  },
+  ctaButton: {
+    backgroundColor: '#1A237E',
+    borderRadius: 12,
+    paddingVertical: 16,
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  ctaButtonText: {
+    color: '#fff',
+    fontSize: 18,
     fontWeight: 'bold',
   },
   modalOverlay: {

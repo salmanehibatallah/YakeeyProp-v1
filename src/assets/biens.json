@@ -8,12 +8,34 @@
     "image": "https://medias.yakeey.com/cdn-cgi/image/f_auto,format=webp,width=1920/ci033040/image_544492555.jpg"
   },
   {
+    "title": "Programme neuf à Oulfa",
+    "price": "À partir de 896 000 DH",
+    "area": "87-105 m²",
+    "rooms": { "bedrooms": 3, "bathrooms": 2 },
+    "location": { "city": "Casablanca", "district": "Oulfa" },
+    "image": "https://medias.yakeey.com/cdn-cgi/image/f_auto,format=avif,compression=fast,dpr=1,fit=crop,width=1920,height=1080/PN000390/image_397323597.jpg"
+  },
+  {
     "title": "Appartement à Bourgogne (Anfa)",
     "price": "2 650 000 DH",
     "area": "139 m²",
     "rooms": { "bedrooms": 3, "bathrooms": 3 },
     "location": { "city": "Casablanca", "district": "Bourgogne (Anfa)" },
     "image": "https://medias.yakeey.com/cdn-cgi/image/f_auto,format=webp,width=1920/ca029096/image_829175610.jpg"
+  },
+  {
+    "title": "Programme neuf à la Ferme Bretonne",
+    "price": "À partir de 1 210 000 DH",
+    "location": {
+      "city": "Casablanca",
+      "district": "Ferme Bretonne"
+    },
+    "area": "42 à 76 m²",
+    "rooms": {
+      "bedrooms": "1 à 2",
+      "bathrooms": "1"
+    },
+    "image": "https://medias.yakeey.com/cdn-cgi/image/f_auto,format=avif,compression=fast,dpr=1,fit=crop,width=1920,height=1080/PN000372/image_379896954.jpg"
   },
   {
     "title": "Villa à Laymoune",
@@ -30,5 +52,30 @@
     "rooms": { "bedrooms": 3, "bathrooms": 2 },
     "location": { "city": "Casablanca", "district": "Ferme Bretonne" },
     "image": "https://medias.yakeey.com/cdn-cgi/image/f_auto,format=webp,width=1920/ca011382/image_221367495.jpeg"
+  },
+  {
+    "title": "Appartement meublé à Les Princesses",
+    "price": "8 700 DH/mois",
+    "area": "92 m²",
+    "rooms": { "bedrooms": 2, "bathrooms": 1 },
+    "location": { "city": "Casablanca", "district": "Les Princesses" },
+    "image": "https://medias.yakeey.com/cdn-cgi/image/f_auto,format=webp,width=1920/ca026972/image_896802729.jpeg"
+  },
+  {
+    "title": "Studio meublé à Hôpitaux",
+    "price": "7 000 DH/mois",
+    "area": "58 m²",
+    "rooms": { "bedrooms": 1, "bathrooms": 1 },
+    "location": { "city": "Casablanca", "district": "Hôpitaux" },
+    "image": "https://medias.yakeey.com/cdn-cgi/image/f_auto,format=webp,width=1920/cs031725/image_895915781.jpeg"
+  },
+  {
+    "title": "Appartement meublé à Laymoune",
+    "price": "7 000 DH/mois",
+    "area": "61 m²",
+    "rooms": { "bedrooms": 2, "bathrooms": 1 },
+    "location": { "city": "Casablanca", "district": "Laymoune" },
+    "image": "https://medias.yakeey.com/cdn-cgi/image/f_auto,format=webp,width=1920/ca049430/image_172443297.jpeg"
   }
+
 ]
